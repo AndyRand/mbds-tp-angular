@@ -3,10 +3,32 @@ var aggregatePaginate = require("mongoose-aggregate-paginate-v2");
 
 let Schema = mongoose.Schema;
 
+const Eleve = {
+    nom: String,
+    prenom: String,
+    image: String
+}
+
+const Matiere = {
+    nom: String,
+    image: String
+}
+
+const Prof = {
+    nom: String,
+    prenom: String,
+    matiere: Matiere,
+    image: String
+}
+
 let AssignmentSchema = Schema({
     id: Number,
-    dateDeRendu: Date,
     nom: String,
+    auteur:Eleve,
+    prof:Prof,
+    note: Number,
+    remarques: String,
+    dateDeRendu: Date,    
     rendu: Boolean
 });
 
